@@ -1,27 +1,328 @@
 <!DOCTYPE html>
 <html lang="uk">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="">
-  <!-- <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Haunted Hamsters</title>
-</head>
-<body>
-  <header>
-
-  </header>
-  <main>
-
-  </main>
-  <footer>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Haunted Hamsters</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="row">
+          <a href="#" class="header-logo">
+            <img src="./img/main-logo.png" alt="Haunted Hamsters logo" />
+          </a>
+          <div class="navbar">
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="#">About Us</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Roadmap</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Team</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">FAQ’s</a>
+              </li>
+            </ul>
+            <ul class="socials-list">
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-instagram"></i></a>
+              </li>
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-discord"></i></a>
+              </li>
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-twitter"></i></a>
+              </li>
+            </ul>
+            <a href="#" class="header-cta btn btn-white"> Connect Wallet </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="main-screen">
+        <img src="./img/main-screen-image.jpg" alt="welcome to the haunted hamsters" class="main-screen__image" />
+        <img src="./img/main-screen-ghost.svg" alt="picture of a ghost" class="main-screen__ghost" data-aos="fade-left" data-aos-delay="500"/>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <h1 class="app__title" data-aos="fade-up" data-aos-delay="100">WELCOME TO <span>THE HAUNTED HAMSTERS</span></h1>
+              <div class="timer" data-aos="fade-up" data-aos-delay="200">
+                <div class="timer-launch">
+                  Time till <br />
+                  launch:
+                </div>
+                <div class="timer__items">
+                  <div class="timer__item timer__days">00</div>
+                  <div class="timer__item timer__hours">00</div>
+                  <div class="timer__item timer__minutes">00</div>
+                  <div class="timer__item timer__seconds">00</div>
+                </div>
+              </div>
+              <div class="main-screen-buttons" data-aos="fade-up" data-aos-delay="300">
+                <a href="#" target="_blank" class="btn btn-black">Connect Wallet</a>
+                <a href="#" target="_blank" class="btn btn-brown">Join The Discord</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <img src="./img/spider-web.png" alt="spider web" class="about-image" />
+        <div class="container">
+          <h2 class="app__title" data-aos="fade-up" data-aos-delay="100">WHAT IS HAUNTED HAMSTERS</h2>
+          <p class="app__subtitle" data-aos="fade-up" data-aos-delay="100">Haunted Hamsters is a game centered around breedable, and oh-so-adorable creatures we call Haunted Hamsters! Each cat is one-of-a-kind and 100% owned by you; it cannot be replicated, taken away, or destroyed.</p>
+        </div>
+        <div class="swiper-container about-slider" data-aos="fade-in" data-aos-delay="200" data-aos-duration="300">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#" target="_blank" class="about-slider__item">
+                <img src="./img/gallery-image-1.png" alt="about image 1" />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" target="_blank" class="about-slider__item">
+                <img src="./img/gallery-image-2.png" alt="about image 2" />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" target="_blank" class="about-slider__item">
+                <img src="./img/gallery-image-3.png" alt="about image 3" />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" target="_blank" class="about-slider__item">
+                <img src="./img/gallery-image-4.png" alt="about image 4" />
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#" target="_blank" class="about-slider__item">
+                <img src="./img/gallery-image-5.png" alt="about image 5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="roadmap">
+        <img src="./img/roadmap-spider-web.png" alt="spider-web" class="roadmap-spider-web" />
+        <div class="container">
+          <h2 class="app__title" data-aos="fade-up" data-aos-delay="100">Roadmap</h2>
+          <div class="row roadmap-item">
+            <div class="col-lg-7">
+              <div class="roadmap-text">
+                <div class="roadmap-text__item" data-aos="fade-in" data-aos-duration="400">
+                  <div class="roadmap-text__title">
+                    <img src="./img/pumpkin.svg" alt="pumpkin" />
+                    <span>Jul</span>
+                  </div>
+                  <div class="roadmap-text__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                </div>
+                <div class="roadmap-text__item" data-aos="fade-in" data-aos-duration="400">
+                  <div class="roadmap-text__title">
+                    <img src="./img/pumpkin.svg" alt="pumpkin" />
+                    <span>aug</span>
+                  </div>
+                  <div class="roadmap-text__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="roadmap__image" data-aos="fade-in" data-aos-duration="400">
+                <img src="./img/roadmap-mummy.png" alt="mummy" />
+              </div>
+            </div>
+          </div>
+          <div class="row roadmap-item">
+            <div class="col-lg-7">
+              <div class="roadmap-text">
+                <div class="roadmap-text__item" data-aos="fade-in" data-aos-duration="400">
+                  <div class="roadmap-text__title">
+                    <img src="./img/pumpkin.svg" alt="pumpkin" />
+                    <span>oct</span>
+                  </div>
+                  <div class="roadmap-text__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                </div>
+                <div class="roadmap-text__item" data-aos="fade-in" data-aos-duration="400">
+                  <div class="roadmap-text__title">
+                    <img src="./img/pumpkin.svg" alt="pumpkin" />
+                    <span>nov</span>
+                  </div>
+                  <div class="roadmap-text__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="roadmap__image" data-aos="fade-in" data-aos-duration="400">
+                <img src="./img/roadmap-zombie.png" alt="zombie" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="team">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-xs-12">
+              <h2 class="app__title" data-aos="fade-up">TEAM</h2>
+              <p class="app__subtitle" data-aos="fade-up">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            </div>
+          </div>
+          <div class="row team-list">
+            <div class="col-md-3 col-xs-6">
+              <div class="team-item" data-aos="fade-right">
+                <div class="team-item__image">
+                  <img src="./img/gallery-image-3.png" alt="team hiro" />
+                </div>
+                <div class="team-item__title">HIRO</div>
+                <div class="team-item__position">Developer</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="team-item" data-aos="fade-right" data-aos-delay="100">
+                <div class="team-item__image">
+                  <img src="./img/gallery-image-4.png" alt="team error" />
+                </div>
+                <div class="team-item__title">ERROR</div>
+                <div class="team-item__position">Artist</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="team-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="team-item__image">
+                  <img src="./img/gallery-image-5.png" alt="team sunny" />
+                </div>
+                <div class="team-item__title">SUNNY</div>
+                <div class="team-item__position">Artist</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="team-item" data-aos="fade-right" data-aos-delay="300">
+                <div class="team-item__image">
+                  <img src="./img/gallery-image-6.png" alt="team mdk" />
+                </div>
+                <div class="team-item__title">MDK</div>
+                <div class="team-item__position">Promotion</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="faq">
+        <img src="./img/spider-web-small.png" alt="faq spider web" class="faq-spider-web" />
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <h2 class="app__title" data-aos="fade-right">FAQ’S</h2>
+              <p class="app__subtitle" data-aos="fade-right">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+              <div class="accordion-container" data-aos="fade-right">
+                <div class="accordion__item">
+                  <a class="accordion__button" href="#">
+                    How do I buy a Haunted Hamsters?
+                    <span class="accordion__arrow"></span>
+                  </a>
+                  <div class="accordion__content">
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, eligendi voluptate est doloremque nostrum quae nihil quidem rerum vel porro illum quisquam provident earum, facere fuga, libero iusto. Ab tempora suscipit, beatae
+                      assumenda placeat id praesentium ut consectetur repudiandae error, veritatis sint odio natus quae consequuntur quas nostrum quia facilis!
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <a class="accordion__button" href="#">
+                    What Blockhain and technology are Haunted Hamsters on?
+                    <span class="accordion__arrow"></span>
+                  </a>
+                  <div class="accordion__content">
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, eligendi voluptate est doloremque nostrum quae nihil quidem rerum vel porro illum quisquam provident earum, facere fuga, libero iusto. Ab tempora suscipit, beatae
+                      assumenda placeat id praesentium ut consectetur repudiandae error, veritatis sint odio natus quae consequuntur quas nostrum quia facilis!
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <a class="accordion__button" href="#">
+                    What can I do with once I get my Haunted Hamsters NFT?
+                    <span class="accordion__arrow"></span>
+                  </a>
+                  <div class="accordion__content">
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, eligendi voluptate est doloremque nostrum quae nihil quidem rerum vel porro illum quisquam provident earum, facere fuga, libero iusto. Ab tempora suscipit, beatae
+                      assumenda placeat id praesentium ut consectetur repudiandae error, veritatis sint odio natus quae consequuntur quas nostrum quia facilis!
+                    </p>
+                  </div>
+                </div>
+                <div class="accordion__item">
+                  <a class="accordion__button" href="#">
+                    What wallet do I need to be able to connect to buy?
+                    <span class="accordion__arrow"></span>
+                  </a>
+                  <div class="accordion__content">
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, eligendi voluptate est doloremque nostrum quae nihil quidem rerum vel porro illum quisquam provident earum, facere fuga, libero iusto. Ab tempora suscipit, beatae
+                      assumenda placeat id praesentium ut consectetur repudiandae error, veritatis sint odio natus quae consequuntur quas nostrum quia facilis!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="faq-image" data-aos="fade-left">
+                <img src="./img/faq-image.png" alt="faq image" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <a href="#" class="footer-logo">
+              <img src="./img/main-logo.png" alt="Haunted Hamsters logo" />
+            </a>
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="#">About Us</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Roadmap</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Team</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">FAQ’s</a>
+              </li>
+            </ul>
+            <ul class="socials-list">
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-instagram"></i></a>
+              </li>
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-discord"></i></a>
+              </li>
+              <li class="socials-list-item">
+                <a href="#" target="_blank"><i class="icon-icon-twitter"></i></a>
+              </li>
+            </ul>
+            <a href="#" class="header-cta btn btn-black-outline"> Connect Wallet </a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="js/jQuery.min.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/main.js"></script>
-  </footer>
-</body>
+  </body>
+</html>

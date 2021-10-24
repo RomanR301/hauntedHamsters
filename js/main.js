@@ -3,33 +3,48 @@ let front = {
   nav: $('.navbar-mobile'),
   $body: $('body'),
   init: function () {
-      const swiper = new Swiper('.categories-carousel', {
+    AOS.init({
+      // Global settings:
+      disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+      startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+      initClassName: 'aos-init', // class applied after initialization
+      animatedClassName: 'aos-animate', // class applied on animation
+      useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+      disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+      debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+      throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+      
+    
+      // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+      offset: 0, // offset (in px) from the original trigger point
+      delay: 0, // values from 0 to 3000, with step 50ms
+      duration: 200, // values from 0 to 3000, with step 50ms
+      easing: 'ease', // default easing for AOS animations
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: false, // whether elements should animate out while scrolling past them
+      anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+    
+    });
+      const swiper = new Swiper('.about-slider', {
         slidesPerView: 'auto',
-        spaceBetween: 0,
-        allowTouchMove: false,
-        navigation: {
-            nextEl: '.categories-next',
-            prevEl: '.categories-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-        },
-        breakpoints: {
-          // when window width is >= 320px
-          320: {
-            // slidesPerGroup: 3,
-            slidesPerView: 4,
-            spaceBetween: 10,
-            loop: true,
-            loopFillGroupWithBlank: true,
-          },
-          // when window width is >= 992px
-          1200: {
-            spaceBetween: 0,
-            slidesPerView: 'auto',
-          }
-        }
+        loop: true,
+        spaceBetween: 40,
+        centeredSlides: true,
+        // breakpoints: {
+        //   // when window width is >= 320px
+        //   320: {
+        //     // slidesPerGroup: 3,
+        //     slidesPerView: 4,
+        //     spaceBetween: 10,
+        //     loop: true,
+        //     loopFillGroupWithBlank: true,
+        //   },
+        //   // when window width is >= 992px
+        //   1200: {
+        //     spaceBetween: 0,
+        //     slidesPerView: 'auto',
+        //   }
+        // }
       })
   },
   toggleNav: function () {
@@ -51,14 +66,7 @@ let front = {
       $(document).on('click', '.hamburger', function () {
           self.toggleNav();
       });
-      $(document).ready(function() {
-        $(".accordion__item .accordion__button").on("click", function(e) {
-        e.preventDefault();
-          $(this).parent().toggleClass("active");
-          $(this).parent().find(".accordion__content").slideToggle(200);
 
-        });
-      });
   }
 };
 
@@ -86,9 +94,63 @@ let modal = {
   }
 };
 
+$(document).ready(function() {
+  $(".accordion__item .accordion__button").on("click", function(e) {
+  e.preventDefault();
+      if ($(this).parent().hasClass("active")) {
+      $(this).parent().removeClass("active");
+      $(this).parent().find(".accordion__content").slideUp(200);
+      } else {
+      $(".accordion__item").removeClass("active");
+      $(this).parent().addClass("active");
+      $(".accordion__content").slideUp(200);
+      $(this).parent().find(".accordion__content").slideDown(200);
+      }
+  });
+});
+
 
 jQuery(function () {
   front.init();
   modal.init();
-    
+});
+
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 0 ) {
+    $('.header').addClass("scroll");
+  } else {
+    $('.header').removeClass("scroll");  
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const deadline = new Date(2021, 10, 21);
+  let timerId = null;
+  function declensionNum(num, words) {
+    return words[(num % 100 > 4 && num % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(num % 10 < 5) ? num % 10 : 5]];
+  }
+  function countdownTimer() {
+    const diff = deadline - new Date();
+    if (diff <= 0) {
+      clearInterval(timerId);
+    }
+    const days = diff > 0 ? Math.floor(diff / 1000 / 60 / 60 / 24) : 0;
+    const hours = diff > 0 ? Math.floor(diff / 1000 / 60 / 60) % 24 : 0;
+    const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
+    const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+    $days.textContent = days < 10 ? '0' + days : days;
+    $hours.textContent = hours < 10 ? '0' + hours : hours;
+    $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
+    $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
+    $days.dataset.title = declensionNum(days, ['Day', 'Days', 'Days']);
+    $hours.dataset.title = declensionNum(hours, ['Hour', 'Hours', 'Hours']);
+    $minutes.dataset.title = declensionNum(minutes, ['Minute', 'Minutes', 'Minutes']);
+    $seconds.dataset.title = declensionNum(seconds, ['Second', 'Seconds', 'Seconds']);
+  }
+  const $days = document.querySelector('.timer__days');
+  const $hours = document.querySelector('.timer__hours');
+  const $minutes = document.querySelector('.timer__minutes');
+  const $seconds = document.querySelector('.timer__seconds');
+  countdownTimer();
+  timerId = setInterval(countdownTimer, 1000);
 });
