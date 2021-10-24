@@ -30,53 +30,22 @@ let front = {
         loop: true,
         spaceBetween: 40,
         centeredSlides: true,
-        // breakpoints: {
-        //   // when window width is >= 320px
-        //   320: {
-        //     // slidesPerGroup: 3,
-        //     slidesPerView: 4,
-        //     spaceBetween: 10,
-        //     loop: true,
-        //     loopFillGroupWithBlank: true,
-        //   },
-        //   // when window width is >= 992px
-        //   1200: {
-        //     spaceBetween: 0,
-        //     slidesPerView: 'auto',
-        //   }
-        // }
+        breakpoints: {
+          320: {
+            spaceBetween: 15,
+          },
+          767: {
+            spaceBetween: 40,
+          }
+        }
       })
   },
-  toggleNav: function () {
-    if (!this.hamburger.hasClass('open')) {
-        this.hamburger.addClass('open');
-        this.nav.toggleClass('active');
-        this.$body.addClass('active')
-        $('.header').addClass('active');
-        } else {
-            this.hamburger.removeClass('open');
-            this.nav.toggleClass('active');
-            this.$body.removeClass('active')
-            $('.header').removeClass('active');
-        }
-    },  
-
-  events: function () {
-      let self = this;
-      $(document).on('click', '.hamburger', function () {
-          self.toggleNav();
-      });
-
-  }
 };
 
 let modal = {
   closeButton: $('.modal__close'),
   closeOverlay: $('.modal'),
   can: 1,
-  init: function () {
-      this.events();
-  },
   openModal: function (id) {
       let modalWindow = $(id);
       modalWindow.fadeIn();
@@ -88,10 +57,6 @@ let modal = {
       modalWindow.find('.modal__content').removeClass('animate-in').addClass('animate-away');
       modalWindow.fadeOut();
   },
-
-  events: function () {
-
-  }
 };
 
 $(document).ready(function() {
@@ -107,12 +72,37 @@ $(document).ready(function() {
       $(this).parent().find(".accordion__content").slideDown(200);
       }
   });
+  $(document).on('click', 'a', function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        let target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        $('body').removeClass('active')
+        $('.navbar').removeClass('active');
+        $('.hamburger').removeClass('open');
+        if (target.length) {
+            $('html,body').animate({
+                scrollTop: (target.offset().top) - 160
+            }, 400);
+            return false;
+        }
+     
+    }
+  });
+  $(document).on('click', '.hamburger', function () {
+    if ($('.hamburger').hasClass('open')) {
+      $('.hamburger').removeClass('open');
+      $('.navbar').toggleClass('active');
+      $('body').removeClass('active')
+      } else {
+        $('.hamburger').addClass('open');
+        $('.navbar').toggleClass('active');
+        $('body').addClass('active')
+      }
+    })
 });
-
 
 jQuery(function () {
   front.init();
-  modal.init();
 });
 
 $(window).scroll(function () {
@@ -143,9 +133,9 @@ document.addEventListener('DOMContentLoaded', function () {
     $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
     $seconds.textContent = seconds < 10 ? '0' + seconds : seconds;
     $days.dataset.title = declensionNum(days, ['Day', 'Days', 'Days']);
-    $hours.dataset.title = declensionNum(hours, ['Hour', 'Hours', 'Hours']);
-    $minutes.dataset.title = declensionNum(minutes, ['Minute', 'Minutes', 'Minutes']);
-    $seconds.dataset.title = declensionNum(seconds, ['Second', 'Seconds', 'Seconds']);
+    $hours.dataset.title = declensionNum(hours, ['Hours', 'Hours', 'Hours']);
+    $minutes.dataset.title = declensionNum(minutes, ['Minutes', 'Minutes', 'Minutes']);
+    $seconds.dataset.title = declensionNum(seconds, ['Seconds', 'Seconds', 'Seconds']);
   }
   const $days = document.querySelector('.timer__days');
   const $hours = document.querySelector('.timer__hours');
